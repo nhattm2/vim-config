@@ -1,0 +1,25 @@
+{
+  "extras": [
+    "lazyvim.plugins.extras.coding.mini-surround",
+    "lazyvim.plugins.extras.coding.yanky",
+    "lazyvim.plugins.extras.dap.core",
+    "lazyvim.plugins.extras.editor.dial",
+    "lazyvim.plugins.extras.editor.inc-rename",
+    "lazyvim.plugins.extras.lang.json",
+    "lazyvim.plugins.extras.lang.markdown",
+    "lazyvim.plugins.extras.lang.terraform",
+    "lazyvim.plugins.extras.lang.toml",
+    "rafi.plugins.extras.lang.ansible",
+    "rafi.plugins.extras.lang.go",
+    "rafi.plugins.extras.lang.helm",
+    "rafi.plugins.extras.lang.kubernetes",
+    "rafi.plugins.extras.lang.markdown",
+    "rafi.plugins.extras.lang.python",
+    "rafi.plugins.extras.lang.tmux",
+    "rafi.plugins.extras.ui.marks"
+  ],
+  "news": [
+
+  ],
+  "version": 6
+}
