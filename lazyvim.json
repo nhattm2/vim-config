@@ -1,0 +1,16 @@
+{
+  "extras": [
+    "lazyvim.plugins.extras.lang.json",
+    "lazyvim.plugins.extras.lang.terraform",
+    "lazyvim.plugins.extras.lang.yaml",
+    "rafi.plugins.extras.lang.markdown",
+    "rafi.plugins.extras.lang.python",
+    "rafi.plugins.extras.ui.bookmarks",
+    "rafi.plugins.extras.ui.marks"
+  ],
+  "install_version": 7,
+  "news": [
+
+  ],
+  "version": 8
+}
