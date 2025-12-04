@@ -33,7 +33,15 @@ for _, name in pairs({ 'options', 'autocmds', 'keymaps' }) do
 		pattern = 'LazyVim' .. name:sub(1, 1):upper() .. name:sub(2) .. 'Defaults',
 		once = true,
 		callback = function()
-			require('rafi.config').load(name)
+			local mod = 'rafi.config.' .. name
+			if require('lazy.core.cache').find(mod)[1] then
+				LazyVim.try(function()
+					require(mod)
+				end, { msg = 'Failed loading ' .. mod })
+			end
+			if name == 'options' then
+				require('rafi.config').setup()
+			end
 		end,
 	})
 end
