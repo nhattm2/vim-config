@@ -40,8 +40,14 @@ return {
 				},
 				offsets = {
 					{
+						filetype = 'snacks_layout_box',
+						text = '󰙅  File Explorer',
+						separator = true,
+					},
+					{
 						filetype = 'neo-tree',
 						text = 'Neo-tree',
+						separator = true,
 						highlight = 'Directory',
 						text_align = 'center',
 					},

@@ -4,7 +4,7 @@ return {
 	{
 		'folke/snacks.nvim',
 		keys = function(_, keys)
-			if not LazyVim.has_extra('editor.snacks_picker') then
+			if LazyVim.pick.picker.name ~= 'snacks' then
 				return
 			end
 			-- stylua: ignore
@@ -32,7 +32,7 @@ return {
 			return vim.list_extend(mappings, keys)
 		end,
 		opts = function(_, opts)
-			if not LazyVim.has_extra('editor.snacks_picker') then
+			if LazyVim.pick.picker.name ~= 'snacks' then
 				return
 			end
 			return vim.tbl_deep_extend('force', opts or {}, {
@@ -108,10 +108,14 @@ return {
 					sources = {
 						explorer = {
 							hidden = true,
+							layout = {
+								auto_hide = { 'input' },
+							},
 							jump = { close = true },
 							win = {
 								list = {
 									keys = {
+										['K'] = 'toggle_preview',
 										['<esc>'] = false,
 										['<c-h>'] = false,
 										['<c-l>'] = false,
