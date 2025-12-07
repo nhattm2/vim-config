@@ -16,9 +16,7 @@ vim.g.elite_mode = false
 vim.g.diffprg = 'bcompare'
 
 -- Disable LazyVim features.
-vim.g.autoformat = false      -- LazyVim auto format
-vim.g.snacks_animate = false  -- Globally disable all snacks animations
-vim.g.trouble_lualine = false -- Disable document symbols in statusline
+vim.g.autoformat = false -- LazyVim auto format
 
 local opt = vim.opt
 
@@ -32,7 +30,6 @@ opt.titlestring = '%<%F%=%l/%L - nvim'
 opt.textwidth = 80             -- Text width maximum chars before wrapping
 opt.mouse = 'nv'               -- Enable mouse in normal and visual modes only
 opt.spelloptions:append('camel')
-opt.shortmess:append({ W = true, I = true, c = true })  --  (default "ltToOCF")
 opt.diffopt:append({
 	'indent-heuristic',
 	'algorithm:patience',
@@ -50,18 +47,6 @@ end
 
 -- What to save for views and sessions
 opt.sessionoptions:remove({ 'blank', 'buffers', 'terminal' })
-opt.sessionoptions:append({ 'globals', 'skiprtp' })
-
-opt.formatoptions = opt.formatoptions
-	- 'a' -- Auto formatting is BAD.
-	- 't' -- Don't auto format my code. I got linters for that.
-	+ 'c' -- In general, I like it when comments respect textwidth
-	+ 'q' -- Allow formatting comments w/ gq
-	- 'o' -- O and o, don't continue comments
-	+ 'r' -- But do continue when pressing enter.
-	+ 'n' -- Indent past the formatlistpat, not underneath it.
-	+ 'j' -- Auto-remove comments if possible.
-	- '2' -- I'm not in gradeschool anymore
 
 opt.breakindent = true
 opt.showcmd = false       -- Don't show command in status line
@@ -71,7 +56,6 @@ opt.colorcolumn = '+0'    -- Align text at 'textwidth'
 opt.showtabline = 2       -- Always show the tabs line
 opt.helpheight = 0        -- Disable help window resizing
 opt.winwidth = 30         -- Minimum width for active window
-opt.winminwidth = 1       -- Minimum width for inactive windows
 opt.winheight = 1         -- Minimum height for active window
 opt.winminheight = 1      -- Minimum height for inactive window
 
@@ -85,8 +69,8 @@ opt.listchars = {
 	trail = '·'
 }
 opt.fillchars = {
-	foldopen = '', -- 󰅀 
-	foldclose = '', -- 󰅂 
+	foldopen = '', --  󰅀
+	foldclose = '', --  󰅂
 	fold = ' ', -- ⸱
 	foldsep = ' ',
 	diff = '╱',
@@ -106,12 +90,11 @@ vim.g.loaded_perl_provider = 0
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_node_provider = 0
 
--- Fix markdown indentation settings
-vim.g.markdown_recommended_style = 0
-vim.g.yaml_indent_multiline_scalar = 1
-
-vim.g.no_gitrebase_maps = 1 -- See share/nvim/runtime/ftplugin/gitrebase.vim
-vim.g.no_man_maps = 1       -- See share/nvim/runtime/ftplugin/man.vim
+-- Neovim built in filetype plugins settings.
+vim.g.markdown_recommended_style = 0    -- $VIMRUNTIME/ftplugin/markdown.vim
+vim.g.yaml_indent_multiline_scalar = 1  -- $VIMRUNTIME/indent/yaml.vim
+vim.g.no_gitrebase_maps = 1  -- See $VIMRUNTIME/ftplugin/gitrebase.vim
+vim.g.no_man_maps = 1        -- See $VIMRUNTIME/ftplugin/man.vim
 
 -- If sudo, disable vim swap/backup/undo/shada writing
 local USER = vim.env.USER or ''

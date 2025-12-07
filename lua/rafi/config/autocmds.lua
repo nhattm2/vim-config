@@ -76,7 +76,7 @@ vim.api.nvim_create_autocmd({ 'InsertEnter', 'WinLeave' }, {
 
 -- Spell checking in text file types
 vim.api.nvim_create_autocmd('FileType', {
-	group = augroup('wrap_spell'),
+	group = augroup('spell_checking'),
 	pattern = { 'text', 'plaintex', 'typst', 'gitcommit', 'markdown' },
 	callback = function()
 		vim.opt_local.spell = true

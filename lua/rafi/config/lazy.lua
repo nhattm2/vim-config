@@ -87,49 +87,6 @@ require('lazy').setup(vim.tbl_extend('keep', user_lazy_opts, {
 							zoomed   = '🔎',
 						},
 					},
-					-- Default completion kind symbols.
-					kinds = {
-						Array         = '󰅪 ', --  󰅪 󰅨 󱃶
-						Boolean       = '󰨙 ', -- 󰨙 󰔡 󱃙 󰟡  ◩
-						Class         = '󰌗 ', --  󰌗 󰠱 𝓒
-						Codeium       = '󰘦 ',
-						Collapsed     = ' ',
-						Color         = '󰏘 ', --  󰸌 󰏘
-						Constant      = '󰏿 ', -- 󰏿  
-						Constructor   = ' ', --   
-						Control       = ' ',
-						Copilot       = ' ',
-						Enum          = '󰕘 ', --   󰕘 ℰ 
-						EnumMember    = ' ',
-						Event         = ' ', --  
-						Field         = ' ', --  󰄶  󰆨  󰀻 󰃒 
-						File          = ' ', --    󰈔 󰈙
-						Folder        = ' ', --   󰉋
-						Function      = '󰊕 ', -- 󰊕 ƒ 
-						Interface     = ' ', --    
-						Key           = ' ',
-						Keyword       = ' ', --   󰌋 
-						Method        = '󰊕 ',
-						Module        = ' ',
-						Namespace     = '󰦮 ',
-						Null          = ' ', --  󰟢
-						Number        = '󰎠 ', -- 󰎠  
-						Object        = ' ', --   󰅩
-						Operator      = '󰃬 ', --  󰃬 󰆕 +
-						Package       = ' ', --   󰏖 󰏗 󰆧 
-						Property      = ' ', --    󰖷
-						Reference     = '󰈝 ', --  󰈝 󰈇
-						Snippet       = '󱄽 ', -- 󱄽   󰘌 ⮡  
-						String        = ' ', --   󰅳
-						Struct        = '󰆼 ', -- 󰆼   𝓢 󰙅 󱏒
-						Supermaven    = ' ',
-						TabNine       = '󰏚 ',
-						Text          = ' ', --   󰉿 𝓐
-						TypeParameter = ' ', --  󰊄 𝙏
-						Unit          = ' ', --   󰑭 
-						Value         = ' ', --  󰀬 󰎠 
-						Variable      = ' ', -- 󰀫  
-					},
 				},
 			},
 		},

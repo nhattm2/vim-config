@@ -81,7 +81,13 @@ map('n', 'zh', 'z4h')
 
 -- Toggle fold or select option from popup menu
 map('n', '<CR>', function()
-	return vim.fn.pumvisible() == 1 and '<CR>' or 'za'
+	if vim.fn.pumvisible() == 1 then
+		return '<CR>'
+	end
+	if vim.fn.foldclosed('.') > -1 then
+		return 'zA'
+	end
+	return 'za'
 end, { expr = true, desc = 'Toggle Fold' })
 
 -- Focus the current fold by closing all others
@@ -209,7 +215,7 @@ map('n', '<C-q>', 'q', { desc = 'Macro Prefix' })
 map('n', '<leader>cid', '<cmd>LazyDev<CR>', { silent = true, desc = 'Dev' })
 map('n', '<leader>cif', '<cmd>LazyFormatInfo<CR>', { silent = true, desc = 'Formatter Info' })
 map('n', '<leader>cir', '<cmd>LazyRoot<CR>', { silent = true, desc = 'Root' })
-map('n', '<leader>cil', '<cmd>check lspconfig<cr>', { desc = 'LSP info popup' })
+map('n', '<leader>cil', function() Snacks.picker.lsp_config() end, { desc = 'LSP Info' })
 map({ 'n', 'x' }, '<leader>cs', function() formatter_select() end, { desc = 'Formatter Select' })
 
 -- Start new line from any cursor position in insert-mode
@@ -283,11 +289,7 @@ map('n', '<Leader>w', '<cmd>write<CR>', { desc = 'Save File' })
 map('n', '<M-s>', '<cmd>write<CR>', { desc = 'Save File' })
 
 -- }}}
--- Editor UI {{{
-
--- Toggle list windows
-map('n', '<leader>xl', function() toggle_list('loclist') end, { desc = 'Toggle Location List' })
-map('n', '<leader>xq', function() toggle_list('quickfix') end, { desc = 'Toggle Quickfix List' })
+-- Diagnostics {{{
 
 map('n', '<Leader>ce', vim.diagnostic.open_float, { desc = 'Line Diagnostics' })
 
