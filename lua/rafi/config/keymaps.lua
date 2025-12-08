@@ -314,9 +314,12 @@ map('n', '<Leader>ml', function() append_modeline() end, { desc = 'Append Modeli
 map('n', 'g<C-i>', function() jump_buffer(1) end, { desc = 'Jump to newer buffer' })
 map('n', 'g<C-o>', function() jump_buffer(-1) end, { desc = 'Jump to older buffer' })
 
--- Context aware menu. See lua/lib/contextmenu.lua
-map('n', '<RightMouse>', function() require('rafi.util.contextmenu').show() end, { desc = 'Context-aware menu' })
-map('n', '<LocalLeader>c', function() require('rafi.util.contextmenu').show() end, { desc = 'Context-aware menu' })
+-- Context aware menu. See lua/rafi/config/autocmds.lua
+map('n', '<LocalLeader>c', function()
+	-- Only RightMouse triggers MenuPopup event :(
+	vim.api.nvim_exec_autocmds('MenuPopup', { pattern = 'n', modeline = false })
+	pcall(vim.cmd.popup, 'PopUp')
+end, { desc = 'Context-aware menu' })
 
 -- Base64 encode/decode
 map('x', '<leader>64e', function() base64() end, { desc = 'Base64 Encode' })
