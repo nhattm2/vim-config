@@ -42,6 +42,11 @@ return {
 		opts = {
 			ui = {
 				border = 'rounded',
+				width = 0.7,
+				height = 0.85,
+				icons = {
+					package_pending = '󰔟',
+				},
 			},
 		},
 	},

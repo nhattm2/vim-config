@@ -16,9 +16,12 @@ function M.open(opts)
 		width = 0.7,
 		height = 0.8,
 		wo = {
+			spell = false,
+			wrap = false,
 			cursorline = false,
 			foldenable = false,
 			number = true,
+			statuscolumn = ' ',
 		},
 		on_close = function(self)
 			if self.buf and vim.api.nvim_buf_is_valid(self.buf) then
