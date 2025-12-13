@@ -47,23 +47,12 @@ return {
 			-- Modern matchit and matchparen
 			{
 				'andymass/vim-matchup',
-				init = function()
-					vim.g.matchup_matchparen_offscreen = {}
-				end,
+				opts = {
+					matchparen = { offscreen = {} },
+				},
 			},
 		},
-		---@param opts TSConfig
-		config = function(_, opts)
-			if type(opts.ensure_installed) == 'table' then
-				opts.ensure_installed = LazyVim.dedup(opts.ensure_installed)
-			end
-			if not has_git then
-				require('nvim-treesitter.install').ensure_installed = function() end
-			end
-			require('nvim-treesitter.configs').setup(opts)
-		end,
-		---@type TSConfig
-		---@diagnostic disable: missing-fields
+		---@class rafivim.TSConfig: lazyvim.TSConfig
 		opts = {
 			sync_install = has_git,
 			highlight = {
@@ -77,7 +66,6 @@ return {
 					end
 				end,
 			},
-			indent = { enable = true },
 			refactor = {
 				highlight_definitions = { enable = true },
 				highlight_current_scope = { enable = true },
@@ -168,6 +156,7 @@ return {
 				'svelte',
 				'vhs',
 				'zig',
+				'zsh',
 			},
 		},
 	},
