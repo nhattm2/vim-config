@@ -12,33 +12,41 @@ local function get_current_directory(state)
 end
 
 return {
+	{ import = 'lazyvim.plugins.extras.editor.neo-tree' },
 
 	-----------------------------------------------------------------------------
 	-- File explorer written in Lua
 	-- NOTE: This extends
-	-- $XDG_DATA_HOME/nvim/lazy/LazyVim/lua/lazyvim/plugins/editor.lua
+	-- $XDG_DATA_HOME/nvim/lazy/LazyVim/lua/lazyvim/plugins/extras/editor/neo-tree.lua
 	'neo-tree.nvim',
 	branch = 'v3.x',
+	cmd = 'Neotree',
 	dependencies = { 'MunifTanjim/nui.nvim' },
-	-- stylua: ignore
-	keys = {
-		{ '<localleader>e', '<leader>fe', desc = 'Explorer Tree (Root Dir)', remap = true },
-		{ '<localleader>E', '<leader>fE', desc = 'Explorer Tree (cwd)', remap = true },
-		{
-			'<localleader>a',
-			function()
-				require('neo-tree.command').execute({ reveal = true, dir = LazyVim.root() })
-			end,
-			desc = 'Reveal in Explorer',
-		},
-		{
-			'<localleader>A',
-			function()
-				require('neo-tree.command').execute({ reveal = true, dir = vim.uv.cwd() })
-			end,
-			desc = 'Reveal in Explorer (cwd)',
-		},
-	},
+	keys = function(_, keys)
+		if LazyVim.has_extra('editor.snacks_explorer') then
+			return
+		end
+		-- stylua: ignore
+		local mappings = {
+			{ '<localleader>e', '<leader>fe', desc = 'Explorer Tree (Root Dir)', remap = true },
+			{ '<localleader>E', '<leader>fE', desc = 'Explorer Tree (cwd)', remap = true },
+			{
+				'<localleader>a',
+				function()
+					require('neo-tree.command').execute({ reveal = true, dir = LazyVim.root() })
+				end,
+				desc = 'Reveal in Explorer',
+			},
+			{
+				'<localleader>A',
+				function()
+					require('neo-tree.command').execute({ reveal = true, dir = vim.uv.cwd() })
+				end,
+				desc = 'Reveal in Explorer (cwd)',
+			},
+		}
+		return vim.list_extend(mappings, keys)
+	end,
 	-- See: https://github.com/nvim-neo-tree/neo-tree.nvim
 	opts = {
 		enable_git_status = has_git,
@@ -62,15 +70,27 @@ return {
 			{
 				event = 'file_opened',
 				handler = function()
-					require('neo-tree').close_all()
+					require('neo-tree.command').execute({ action = 'close' })
 				end,
 			},
 		},
 
-		default_component_configs = {
-			indent = {
-				with_expanders = false,
+		nesting_rules = {
+			['package.json'] = {
+				pattern = '^package%.json$',
+				files = { 'pnpm-lock%.yaml', 'package-lock%.json', 'yarn%.lock' },
 			},
+			['go'] = {
+				pattern = '(.*)%.go$',
+				files = { '%1_test.go' },
+			},
+			['go.mod'] = {
+				pattern = '^go%.mod$',
+				files = { 'go%.sum' },
+			},
+		},
+
+		default_component_configs = {
 			icon = {
 				folder_empty = '',
 				folder_empty_open = '',
@@ -220,18 +240,11 @@ return {
 
 					-- Search and replace in path.
 					['gz'] = function(state)
-						local prefills = {
-							paths = vim.fn.fnameescape(get_current_directory(state)),
-						}
-						local grug_far = require('grug-far')
-						if not grug_far.has_instance('explorer') then
-							grug_far.open({ instanceName = 'explorer' })
-						else
-							grug_far.open_instance('explorer')
-						end
-						-- Doing it seperately because multiple paths isn't supported when passed
-						-- with prefills update, without clearing search and other fields.
-						grug_far.update_instance_prefills('explorer', prefills, false)
+						require('grug-far').open({
+							prefills = {
+								paths = vim.fn.fnameescape(get_current_directory(state)),
+							}
+						})
 					end,
 				},
 			},

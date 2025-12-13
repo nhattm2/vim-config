@@ -271,8 +271,8 @@ return {
 				include_current_win = true,
 				autoselect_one = true,
 				bo = {
-					filetype = { 'notify', 'noice', 'neo-tree-popup' },
-					buftype = { 'prompt', 'nofile', 'quickfix' },
+					filetype = { 'neo-tree', 'neo-tree-popup', 'notify', 'noice' },
+					buftype = { 'terminal', 'quickfix', 'prompt', 'nofile' },
 				},
 			},
 		},
