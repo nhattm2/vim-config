@@ -10,6 +10,7 @@ return {
 			-- stylua: ignore
 			local mappings = {
 				{ '<leader><localleader>', function() Snacks.picker() end, mode = { 'n', 'x' }, desc = 'Pickers' },
+				{ '<localleader>r', '<leader>sR', remap = true, desc = 'Resume Last' },
 				{ '<localleader>u', function() Snacks.picker.spelling() end, mode = { 'n', 'x' }, desc = 'Spellcheck' },
 				{ '<leader>gF', function() Snacks.picker.files({ pattern = vim.fn.expand('<cword>') }) end, desc = 'Find File' },
 				{
@@ -90,12 +91,29 @@ return {
 			if not LazyVim.has_extra('editor.snacks_explorer') then
 				return
 			end
+			--- Open callback and toggle Snacks explorer window.
+			---@param cb function
+			local function open(cb)
+				return function()
+					local explorer_pickers = Snacks.picker.get({ source = 'explorer' })
+					for _, v in pairs(explorer_pickers) do
+						if v:is_focused() then
+							v:close()
+						else
+							v:focus()
+						end
+					end
+					if #explorer_pickers == 0 then
+						cb()
+					end
+				end
+			end
 			-- stylua: ignore
 			local mappings = {
-				{ '<localleader>e', '<leader>fe', desc = 'Explorer Tree (Root Dir)', remap = true },
-				{ '<localleader>E', '<leader>fE', desc = 'Explorer Tree (cwd)', remap = true },
-				{ '<localleader>a', function() Snacks.explorer.reveal({ cwd = LazyVim.root() }) end, desc = 'Reveal in Explorer' },
-				{ '<localleader>A', function() Snacks.explorer.reveal() end, desc = 'Reveal in Explorer (cwd)' },
+				{ '<localleader>e', '<leader>fe', open(function() Snacks.explorer({ cwd = LazyVim.root() }) end), desc = 'Explorer Tree', remap = true },
+				{ '<localleader>E', '<leader>fE', open(function() Snacks.explorer() end), desc = 'Explorer Tree (cwd)', remap = true },
+				{ '<localleader>a', open(function() Snacks.explorer.reveal({ cwd = LazyVim.root() }) end), desc = 'Reveal in Explorer' },
+				{ '<localleader>A', open(function() Snacks.explorer.reveal() end), desc = 'Reveal in Explorer (cwd)' },
 			}
 			return vim.list_extend(mappings, keys)
 		end,

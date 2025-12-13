@@ -21,7 +21,6 @@ end
 -- Picker {{{
 
 -- Bind localleader to common LazyVim picker (telescope/fzf/snacks) keymaps.
-map('n', '<localleader>r', '<leader>sR', { remap = true, desc = 'Resume Last' })
 map('n', '<localleader>f', '<leader>ff', { remap = true, desc = 'Find Files (Root Dir)' })
 map('n', '<localleader>F', '<leader>fF', { remap = true, desc = 'Find Files (cwd)' })
 map('n', '<localleader>g', '<leader>sg', { remap = true, desc = 'Grep (Root Dir)' })
@@ -94,6 +93,7 @@ end, { expr = true, desc = 'Toggle Fold' })
 map('n', '<S-Return>', 'zMzv', { remap = true, desc = 'Focus Fold' })
 
 -- Tabs: Many ways to navigate them
+unmap('n', { '<A-j>', '<A-k>' })
 map('n', '<A-j>', '<cmd>tabnext<CR>', { desc = 'Next Tab' })
 map('n', '<A-k>', '<cmd>tabprevious<CR>', { desc = 'Previous Tab' })
 map('n', '<A-[>', '<cmd>tabprevious<CR>', { desc = 'Previous Tab' })

@@ -16,6 +16,8 @@ return {
 				['<C-k>'] = { 'select_prev', 'fallback' },
 				['<C-d>'] = { 'select_next', 'fallback' },
 				['<C-u>'] = { 'select_prev', 'fallback' },
+				['<C-h>'] = { 'snippet_backward', 'fallback' },
+				['<C-l>'] = { 'snippet_forward', 'fallback' },
 			},
 		},
 	},

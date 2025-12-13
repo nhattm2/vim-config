@@ -12,7 +12,7 @@ return {
 			{ 'm<BS>', function() require('bookmarks').bookmark_clean() end, desc = 'Clean buffer marks' },
 			{ 'm]', function() require('bookmarks').bookmark_next() end, desc = 'Jump to next mark' },
 			{ 'm[', function() require('bookmarks').bookmark_prev() end, desc = 'Jump to previous mark' },
-			{ 'ml', function() require('bookmarks').bookmark_list() end, desc = 'List marks' },
+			{ 'm/', function() require('bookmarks').bookmark_list() end, desc = 'List marks' },
 			{ 'm<Space>', function() require('bookmarks').bookmark_clear_all() end, desc = 'Remove all marks' },
 		},
 		opts = {

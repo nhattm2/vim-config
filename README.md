@@ -1082,11 +1082,11 @@ Legend: | Ⓝormal | Ⓥisual | Ⓢelect | Ⓘnsert | Ⓞperator | Ⓒommand |
 | <kbd>Space</kbd> <kbd>cs</kbd>  | Ⓝ | Formatter menu selection | <small>[plugins/lsp/keymaps.lua]</small> |
 | <kbd>Space</kbd> <kbd>ca</kbd>  | Ⓝ Ⓥ | Code action | <small>[plugins/lsp/keymaps.lua]</small> |
 | <kbd>Space</kbd> <kbd>cA</kbd>  | Ⓝ | Source action | <small>[plugins/lsp/keymaps.lua]</small> |
-| <kbd>Space</kbd> <kbd>cli</kbd>  | Ⓝ | LSP incoming calls | <small>[plugins/lsp/keymaps.lua]</small> |
-| <kbd>Space</kbd> <kbd>clo</kbd>  | Ⓝ | LSP outgoing calls | <small>[plugins/lsp/keymaps.lua]</small> |
-| <kbd>Space</kbd> <kbd>fwa</kbd> | Ⓝ | Add workspace folder | <small>[plugins/lsp/keymaps.lua]</small> |
-| <kbd>Space</kbd> <kbd>fwr</kbd> | Ⓝ | Remove workspace folder | <small>[plugins/lsp/keymaps.lua]</small> |
-| <kbd>Space</kbd> <kbd>fwl</kbd> | Ⓝ | List workspace folders | <small>[plugins/lsp/keymaps.lua]</small> |
+| <kbd>Space</kbd> <kbd>cli</kbd>  | Ⓝ | LSP incoming calls | <small>[plugins/lsp.lua]</small> |
+| <kbd>Space</kbd> <kbd>clo</kbd>  | Ⓝ | LSP outgoing calls | <small>[plugins/lsp.lua]</small> |
+| <kbd>Space</kbd> <kbd>ciwa</kbd> | Ⓝ | Add workspace folder | <small>[plugins/lsp.lua]</small> |
+| <kbd>Space</kbd> <kbd>ciwr</kbd> | Ⓝ | Remove workspace folder | <small>[plugins/lsp.lua]</small> |
+| <kbd>Space</kbd> <kbd>ciwl</kbd> | Ⓝ | List workspace folders | <small>[plugins/lsp.lua]</small> |
 | <kbd>Space</kbd> <kbd>cgd</kbd> | Ⓝ | Glance definitions | <small>[dnlhc/glance.nvim]</small> |
 | <kbd>Space</kbd> <kbd>cgr</kbd> | Ⓝ | Glance references | <small>[dnlhc/glance.nvim]</small> |
 | <kbd>Space</kbd> <kbd>cgy</kbd> | Ⓝ | Glance type definitions | <small>[dnlhc/glance.nvim]</small> |
