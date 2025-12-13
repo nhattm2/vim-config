@@ -122,14 +122,57 @@ return {
 				return
 			end
 			return vim.tbl_deep_extend('force', opts or {}, {
+				image = {},
 				picker = {
 					sources = {
 						explorer = {
+							replace_netrw = true,
 							hidden = true,
 							layout = {
+								cycle = false,
 								auto_hide = { 'input' },
 							},
 							jump = { close = true },
+							actions = {
+								-- Find in path.
+								find_in_path = function(_, item)
+									if not item.dir or not item.open then
+										item = item.parent
+									end
+									LazyVim.pick('files', { cwd = item.file })()
+								end,
+								-- Grep in path.
+								grep_in_path = function(_, item)
+									if not item.dir or not item.open then
+										item = item.parent
+									end
+									LazyVim.pick('live_grep', { cwd = item.file })()
+								end,
+								-- Search and replace in path.
+								search_replace_in_path = function(_, item)
+									if not item.dir or not item.open then
+										item = item.parent
+									end
+									require('grug-far').open({
+										prefills = {
+											paths = vim.fn.fnameescape(item.file),
+										},
+									})
+								end,
+								toggle_width = function(picker)
+									local normal = 30 -- state.window.width
+									local large = normal * 1.9
+									local small = math.floor(normal / 1.6)
+									local cur_width = vim.fn.winwidth(0) -- state.win_width
+									local new_width = normal
+									if cur_width > normal then
+										new_width = small
+									elseif cur_width == normal then
+										new_width = large
+									end
+									vim.cmd(new_width .. ' wincmd |')
+								end,
+							},
 							win = {
 								list = {
 									keys = {
@@ -140,6 +183,10 @@ return {
 										['sv'] = 'edit_split',
 										['sg'] = 'edit_vsplit',
 										['st'] = 'edit_tab',
+										['gf'] = 'find_in_path',
+										['gr'] = 'grep_in_path',
+										['gz'] = 'search_replace_in_path',
+										['w'] = 'toggle_width',
 									},
 								},
 							},
