@@ -1,7 +1,9 @@
 # Rafael Bodill's Neovim Config
 
-Lean mean Neovim machine, 30-45ms startup time. Works best with [Neovim] ≥0.10
-<br />(powered by [LazyVim]💤)
+Lean mean Neovim machine, 30-45ms startup time.
+Works best with [Neovim] ≥0.11.2
+
+(powered by [LazyVim]💤)
 
 :gear: See [__Extending__](#extending) for customizing configuration and adding
 plugins.
@@ -108,7 +110,7 @@ plugins.
 ## Prerequisites
 
 * [git](https://git-scm.com/) ≥ 2.19.0 (`brew install git`)
-* [Neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim) ≥ v0.10.0
+* [Neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim) ≥ v0.11.2
   (`brew install neovim`)
 
 **Optional**, but highly recommended:
@@ -142,18 +144,18 @@ Enjoy! :smile:
 
 Use `:Mason` (or <kbd>Space</kbd>+<kbd>cm</kbd>) to install and manage LSP
 servers, DAP servers, linters and formatters. See `:h mason.nvim` and
-[williamboman/mason.nvim] for more information.
+[mason-org/mason.nvim] for more information.
 
 ### Language-Server Protocol (LSP)
 
 You can install LSP servers using `:Mason` UI, or `:MasonInstall <name>`,
 or `:LspInstall <name>` (use <kbd>Tab</kbd> to list available servers).
 See Mason's [PACKAGES.md](https://mason-registry.dev/registry/list)
-for the official list, and the [Language server mapping](https://github.com/williamboman/mason-lspconfig.nvim/blob/main/doc/server-mapping.md)
+for the official list, and the [Language server mapping](https://github.com/mason-org/mason-lspconfig.nvim/blob/main/doc/server-mapping.md)
 list. You can also view at `:h mason-lspconfig-server-map`
 
 You'll need utilities like `npm` and `curl` to install some extensions, see
-[requirements](https://github.com/williamboman/mason.nvim#requirements)
+[requirements](https://github.com/mason-org/mason.nvim#requirements)
 (or `:h mason-requirements`) for more information.
 
 See [lua/rafi/plugins/lsp/init.lua] for custom key-mappings and configuration
@@ -170,7 +172,7 @@ for some language-servers.
 :MasonInstall vim-language-server yaml-language-server
 ```
 
-and [more](https://github.com/williamboman/mason-lspconfig.nvim/blob/main/doc/server-mapping.md)…
+and [more](https://github.com/mason-org/mason-lspconfig.nvim/blob/main/doc/server-mapping.md)…
 
 ### Recommended Linters
 
@@ -445,8 +447,8 @@ _Note_ that 95% of the plugins are **lazy-loaded**.
 | Name           | Description            |
 | -------------- | ---------------------- |
 | [neovim/nvim-lspconfig] | Quickstart configurations for the Nvim LSP client |
-| [williamboman/mason.nvim] | Portable package manager for Neovim |
-| [williamboman/mason-lspconfig.nvim] | Mason extension for easier lspconfig integration |
+| [mason-org/mason.nvim] | Portable package manager for Neovim |
+| [mason-org/mason-lspconfig.nvim] | Mason extension for easier lspconfig integration |
 | [stevearc/conform.nvim] | Lightweight yet powerful formatter plugin |
 | [mfussenegger/nvim-lint] | Asynchronous linter plugin |
 
@@ -473,14 +475,14 @@ _Note_ that 95% of the plugins are **lazy-loaded**.
 | Name           | Description |
 | -------------- | ---------------------- |
 | [rafamadriz/friendly-snippets] | Preconfigured snippets for different languages |
-| [echasnovski/mini.pairs] | Automatically manage character pairs |
-| [echasnovski/mini.surround] | Fast and feature-rich surround actions |
+| [nvim-mini/mini.pairs] | Automatically manage character pairs |
+| [nvim-mini/mini.surround] | Fast and feature-rich surround actions |
 | [JoosepAlviste/nvim-ts-context-commentstring] | Set the commentstring based on the cursor location |
 | [numToStr/Comment.nvim] | Powerful line and block-wise commenting |
-| [echasnovski/mini.splitjoin] | Split and join arguments |
-| [echasnovski/mini.trailspace] | Trailing whitespace highlight and remove |
+| [nvim-mini/mini.splitjoin] | Split and join arguments |
+| [nvim-mini/mini.trailspace] | Trailing whitespace highlight and remove |
 | [AndrewRadev/linediff.vim] | Perform diffs on blocks of code |
-| [echasnovski/mini.ai] | Extend and create `a`/`i` textobjects |
+| [nvim-mini/mini.ai] | Extend and create `a`/`i` textobjects |
 | [folke/lazydev.nvim] | Faster LuaLS setup |
 | [Bilal2453/luvit-meta] | Manage libuv types with lazy |
 
@@ -532,7 +534,7 @@ _Note_ that 95% of the plugins are **lazy-loaded**.
 
 | Name           | Description |
 | -------------- | ---------------------- |
-| [echasnovski/mini.icons] | Icon provider |
+| [nvim-mini/mini.icons] | Icon provider |
 | [MunifTanjim/nui.nvim] | UI Component Library |
 | [stevearc/dressing.nvim] | Improve the default vim-ui interfaces |
 | [akinsho/bufferline.nvim] | Snazzy tab/bufferline |
@@ -540,14 +542,14 @@ _Note_ that 95% of the plugins are **lazy-loaded**.
 | [SmiteshP/nvim-navic] | Shows your current code context in winbar/statusline |
 | [chentau/marks.nvim] | Interacting with and manipulating marks |
 | [lukas-reineke/indent-blankline.nvim] | Visually display indent levels |
-| [echasnovski/mini.indentscope] | Visualize and operate on indent scope |
+| [nvim-mini/mini.indentscope] | Visualize and operate on indent scope |
 | [folke/which-key.nvim] | Create key bindings that stick |
 | [tenxsoydev/tabs-vs-spaces.nvim] | Hint and fix deviating indentation |
 | [t9md/vim-quickhl] | Highlight words quickly |
 
 [neovim/nvim-lspconfig]: https://github.com/neovim/nvim-lspconfig
-[williamboman/mason.nvim]: https://github.com/williamboman/mason.nvim
-[williamboman/mason-lspconfig.nvim]: https://github.com/williamboman/mason-lspconfig.nvim
+[mason-org/mason.nvim]: https://github.com/mason-org/mason.nvim
+[mason-org/mason-lspconfig.nvim]: https://github.com/mason-org/mason-lspconfig.nvim
 [stevearc/conform.nvim]: https://github.com/stevearc/conform.nvim
 [mfussenegger/nvim-lint]: https://github.com/mfussenegger/nvim-lint
 
@@ -565,14 +567,14 @@ _Note_ that 95% of the plugins are **lazy-loaded**.
 [MagicDuck/grug-far.nvim]: https://github.com/MagicDuck/grug-far.nvim
 
 [rafamadriz/friendly-snippets]: https://github.com/rafamadriz/friendly-snippets
-[echasnovski/mini.pairs]: https://github.com/echasnovski/mini.pairs
-[echasnovski/mini.surround]: https://github.com/echasnovski/mini.surround
+[nvim-mini/mini.pairs]: https://github.com/nvim-mini/mini.pairs
+[nvim-mini/mini.surround]: https://github.com/nvim-mini/mini.surround
 [JoosepAlviste/nvim-ts-context-commentstring]: https://github.com/JoosepAlviste/nvim-ts-context-commentstring
 [numToStr/Comment.nvim]: https://github.com/numToStr/Comment.nvim
-[echasnovski/mini.splitjoin]: https://github.com/echasnovski/mini.splitjoin
-[echasnovski/mini.trailspace]: https://github.com/echasnovski/mini.trailspace
+[nvim-mini/mini.splitjoin]: https://github.com/nvim-mini/mini.splitjoin
+[nvim-mini/mini.trailspace]: https://github.com/nvim-mini/mini.trailspace
 [AndrewRadev/linediff.vim]: https://github.com/AndrewRadev/linediff.vim
-[echasnovski/mini.ai]: https://github.com/echasnovski/mini.ai
+[nvim-mini/mini.ai]: https://github.com/nvim-mini/mini.ai
 [folke/lazydev.nvim]: https://github.com/folke/lazydev.nvim
 [Bilal2453/luvit-meta]: https://github.com/Bilal2453/luvit-meta
 
@@ -604,7 +606,7 @@ _Note_ that 95% of the plugins are **lazy-loaded**.
 [MTDL9/vim-log-highlighting]: https://github.com/MTDL9/vim-log-highlighting
 [reasonml-editor/vim-reason-plus]: https://github.com/reasonml-editor/vim-reason-plus
 
-[echasnovski/mini.icons]: https://github.com/echasnovski/mini.icons
+[nvim-mini/mini.icons]: https://github.com/nvim-mini/mini.icons
 [MunifTanjim/nui.nvim]: https://github.com/MunifTanjim/nui.nvim
 [stevearc/dressing.nvim]: https://github.com/stevearc/dressing.nvim
 [akinsho/bufferline.nvim]: https://github.com/akinsho/bufferline.nvim
@@ -612,7 +614,7 @@ _Note_ that 95% of the plugins are **lazy-loaded**.
 [SmiteshP/nvim-navic]: https://github.com/SmiteshP/nvim-navic
 [chentau/marks.nvim]: https://github.com/chentau/marks.nvim
 [lukas-reineke/indent-blankline.nvim]: https://github.com/lukas-reineke/indent-blankline.nvim
-[echasnovski/mini.indentscope]: https://github.com/echasnovski/mini.indentscope
+[nvim-mini/mini.indentscope]: https://github.com/nvim-mini/mini.indentscope
 [folke/which-key.nvim]: https://github.com/folke/which-key.nvim
 [tenxsoydev/tabs-vs-spaces.nvim]: https://github.com/tenxsoydev/tabs-vs-spaces.nvim
 [t9md/vim-quickhl]: https://github.com/t9md/vim-quickhl
@@ -638,7 +640,7 @@ Spec: `rafi.plugins.extras.coding.<name>`
 
 | Name           | Repository     | Description |
 | -------------- | -------------- | ---------------------- |
-| `align` | [echasnovski/mini.align] | Align text interactively |
+| `align` | [nvim-mini/mini.align] | Align text interactively |
 | `chainsaw` | [chrisgrieser/nvim-chainsaw] | Create log statements on the fly |
 | `debugprint.lua` | [andrewferrier/debugprint.nvim] | Easily add debug print lines |
 | `editorconfig` | [sgur/vim-editorconfig] | EditorConfig plugin written entirely in Vimscript |
@@ -646,7 +648,7 @@ Spec: `rafi.plugins.extras.coding.<name>`
 | `nvim-cmp` | [hrsh7th/nvim-cmp] | Completion plugin |
 | `sandwich` | [machakann/vim-sandwich] | Search, select, and edit sandwich text objects |
 
-[echasnovski/mini.align]: https://github.com/echasnovski/mini.align
+[nvim-mini/mini.align]: https://github.com/nvim-mini/mini.align
 [chrisgrieser/nvim-chainsaw]: https://github.com/chrisgrieser/nvim-chainsaw
 [andrewferrier/debugprint.nvim]: https://github.com/andrewferrier/debugprint.nvim
 [sgur/vim-editorconfig]: https://github.com/sgur/vim-editorconfig
@@ -681,7 +683,7 @@ Spec: `rafi.plugins.extras.editor.<name>`
 | `anyjump`     | [pechorin/any-jump.vim] | Jump to any definition and references without overhead |
 | `flybuf`      | [glepnir/flybuf.nvim]   | List buffers in a float window |
 | `harpoon2`    | [ThePrimeagen/harpoon]  | Marks for navigating your project |
-| `mini-visits` | [echasnovski/mini.visits] | Track and reuse file system visits |
+| `mini-visits` | [nvim-mini/mini.visits] | Track and reuse file system visits |
 | `rest`        | [rest-nvim/rest.nvim] | Fast Neovim http client written in Lua |
 | `sidebar`     | [sidebar-nvim/sidebar.nvim] | Generic and modular lua sidebar |
 | `spectre`     | [nvim-pack/nvim-spectre] | Find and replace |
@@ -690,7 +692,7 @@ Spec: `rafi.plugins.extras.editor.<name>`
 [pechorin/any-jump.vim]: https://github.com/pechorin/any-jump.vim
 [glepnir/flybuf.nvim]: https://github.com/glepnir/flybuf.nvim
 [ThePrimeagen/harpoon]: https://github.com/ThePrimeagen/harpoon
-[echasnovski/mini.visits]: https://github.com/echasnovski/mini.visits
+[nvim-mini/mini.visits]: https://github.com/nvim-mini/mini.visits
 [rest-nvim/rest.nvim]: https://github.com/rest-nvim/rest.nvim
 [sidebar-nvim/sidebar.nvim]: https://github.com/sidebar-nvim/sidebar.nvim
 [nvim-pack/nvim-spectre]: https://github.com/nvim-pack/nvim-spectre
@@ -792,8 +794,8 @@ Spec: `rafi.plugins.extras.ui.<name>`
 | `illuminate`      | [RRethy/vim-illuminate] | Highlights other uses of the word under the cursor |
 | `incline`         | [b0o/incline.nvim] | Floating statuslines |
 | `marks`           | [chentoast/marks.nvim] | Interacting with and manipulating marks |
-| `mini-clue`       | [echasnovski/mini.clue] | Show next key clues |
-| `mini-map`        | [echasnovski/mini.map] | Window with buffer text overview, scrollbar and highlights |
+| `mini-clue`       | [nvim-mini/mini.clue] | Show next key clues |
+| `mini-map`        | [nvim-mini/mini.map] | Window with buffer text overview, scrollbar and highlights |
 | `quicker`         | [stevearc/quicker.nvim] | Improved quickfix UI and workflow |
 | `symbols-outline` | [simrat39/symbols-outline.nvim] | Tree like view for symbols using LSP |
 
@@ -810,8 +812,8 @@ Spec: `rafi.plugins.extras.ui.<name>`
 [RRethy/vim-illuminate]: https://github.com/RRethy/vim-illuminate
 [b0o/incline.nvim]: https://github.com/b0o/incline.nvim
 [chentoast/marks.nvim]: https://github.com/chentoast/marks.nvim
-[echasnovski/mini.clue]: https://github.com/echasnovski/mini.clue
-[echasnovski/mini.map]: https://github.com/echasnovski/mini.map
+[nvim-mini/mini.clue]: https://github.com/nvim-mini/mini.clue
+[nvim-mini/mini.map]: https://github.com/nvim-mini/mini.map
 [stevearc/quicker.nvim]: https://github.com/stevearc/quicker.nvim
 [simrat39/symbols-outline.nvim]: https://github.com/simrat39/symbols-outline.nvim
 
@@ -1022,14 +1024,14 @@ Legend: | Ⓝormal | Ⓥisual | Ⓢelect | Ⓘnsert | Ⓞperator | Ⓒommand |
 | <kbd>]e</kbd> or <kbd>[e</kbd> | Ⓝ | Next/previous error | <small>[config/keymaps.lua]</small> |
 | <kbd>]w</kbd> or <kbd>[w</kbd> | Ⓝ | Next/previous warning | <small>[config/keymaps.lua]</small> |
 | <kbd>]b</kbd> or <kbd>[b</kbd> | Ⓝ | Next/previous buffer | <small>[akinsho/bufferline.nvim]</small> |
-| <kbd>]f</kbd> or <kbd>[f</kbd> | Ⓝ | Next/previous function start | <small>[echasnovski/mini.ai]</small> |
-| <kbd>]F</kbd> or <kbd>[F</kbd> | Ⓝ | Next/previous function end | <small>[echasnovski/mini.ai]</small> |
-| <kbd>]c</kbd> or <kbd>[c</kbd> | Ⓝ | Next/previous class start | <small>[echasnovski/mini.ai]</small> |
-| <kbd>]C</kbd> or <kbd>[C</kbd> | Ⓝ | Next/previous class end | <small>[echasnovski/mini.ai]</small> |
-| <kbd>]m</kbd> or <kbd>[m</kbd> | Ⓝ | Next/previous method start | <small>[echasnovski/mini.ai]</small> |
-| <kbd>]M</kbd> or <kbd>[M</kbd> | Ⓝ | Next/previous method end | <small>[echasnovski/mini.ai]</small> |
+| <kbd>]f</kbd> or <kbd>[f</kbd> | Ⓝ | Next/previous function start | <small>[nvim-mini/mini.ai]</small> |
+| <kbd>]F</kbd> or <kbd>[F</kbd> | Ⓝ | Next/previous function end | <small>[nvim-mini/mini.ai]</small> |
+| <kbd>]c</kbd> or <kbd>[c</kbd> | Ⓝ | Next/previous class start | <small>[nvim-mini/mini.ai]</small> |
+| <kbd>]C</kbd> or <kbd>[C</kbd> | Ⓝ | Next/previous class end | <small>[nvim-mini/mini.ai]</small> |
+| <kbd>]m</kbd> or <kbd>[m</kbd> | Ⓝ | Next/previous method start | <small>[nvim-mini/mini.ai]</small> |
+| <kbd>]M</kbd> or <kbd>[M</kbd> | Ⓝ | Next/previous method end | <small>[nvim-mini/mini.ai]</small> |
 | <kbd>]g</kbd> or <kbd>[g</kbd> | Ⓝ | Next/previous Git hunk | <small>[lewis6991/gitsigns.nvim]</small> |
-| <kbd>]i</kbd> or <kbd>[i</kbd> | Ⓝ | Next/previous indent scope | <small>[echasnovski/mini.indentscope]</small> |
+| <kbd>]i</kbd> or <kbd>[i</kbd> | Ⓝ | Next/previous indent scope | <small>[nvim-mini/mini.indentscope]</small> |
 | <kbd>]t</kbd> or <kbd>[t</kbd> | Ⓝ | Next/previous TODO | <small>[folke/todo-comments.nvim]</small> |
 | <kbd>]z</kbd> or <kbd>[z</kbd> | Ⓝ | Next/previous whitespace error | <small>[config/keymaps.lua]</small> |
 
@@ -1123,11 +1125,11 @@ Legend: | Ⓝormal | Ⓥisual | Ⓢelect | Ⓘnsert | Ⓞperator | Ⓒommand |
 | <kbd>Space</kbd>+<kbd>v</kbd> | Ⓝ Ⓥ | Toggle line-wise comments | <small>[numToStr/Comment.nvim]</small> |
 | <kbd>Space</kbd>+<kbd>V</kbd> | Ⓝ Ⓥ | Toggle block-wise comments | <small>[numToStr/Comment.nvim]</small> |
 | <kbd>Space</kbd>+<kbd>dd</kbd> | Ⓝ Ⓥ | Duplicate line or selection | <small>[config/keymaps.lua]</small> |
-| <kbd>Space</kbd>+<kbd>cw</kbd> | Ⓝ | Remove all spaces at EOL | <small>[echasnovski/mini.trailspace]</small> |
+| <kbd>Space</kbd>+<kbd>cw</kbd> | Ⓝ | Remove all spaces at EOL | <small>[nvim-mini/mini.trailspace]</small> |
 | <kbd>Space</kbd>+<kbd>cid</kbd> | Ⓝ | LazyDev | <small>[folke/lazydev.nvim]</small> |
 | <kbd>Space</kbd>+<kbd>cif</kbd> | Ⓝ | LazyFormatterInfo | <small>[LazyVim/LazyVim]</small> |
 | <kbd>Space</kbd>+<kbd>cir</kbd> | Ⓝ | LazyRoot | <small>[LazyVim/LazyVim]</small> |
-| <kbd>sj</kbd> / <kbd>sk</kbd> | Ⓝ | Join/split arguments | <small>[echasnovski/mini.splitjoin]</small> |
+| <kbd>sj</kbd> / <kbd>sk</kbd> | Ⓝ | Join/split arguments | <small>[nvim-mini/mini.splitjoin]</small> |
 
 ### Search, Substitute, Diff
 
@@ -1220,7 +1222,7 @@ Legend: | Ⓝormal | Ⓥisual | Ⓢelect | Ⓘnsert | Ⓞperator | Ⓒommand |
 
 #### Plugin: Mini.Surround
 
-See [echasnovski/mini.surround] for more mappings and usage information.
+See [nvim-mini/mini.surround] for more mappings and usage information.
 
 | Key            | Mode  | Action                       |
 | -------------- |:-----:| ---------------------------- |

@@ -49,10 +49,10 @@ endif
 
 .PHONY: test
 test:
-	$(info Testing for NVIM >= 0.10.x)
-	$(if $(shell nvim --version | egrep 'NVIM v0\.1[0-9]\.'),\
+	$(info Testing for NVIM >= 0.11.2)
+	$(if $(shell nvim --version | egrep 'NVIM v0\.1[1-9]\.'),\
 		$(info OK),\
-		$(error   .. You need Neovim 0.10.x or newer))
+		$(error   .. You need Neovim 0.11.2 or newer))
 	@echo All tests passed, hooray!
 
 .PHONY: docker

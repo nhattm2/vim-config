@@ -5,7 +5,7 @@
 	"no-space-in-code": false,
 	"no-inline-html": {
 		"allowed_elements": [
-			"a", "i", "strong", "center", "kbd", "small", "details", "summary"
+			"a", "i", "strong", "center", "kbd", "small", "details", "summary", "br"
 		]
 	}
 }
