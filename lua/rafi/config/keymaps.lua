@@ -23,6 +23,8 @@ end
 -- Bind localleader to common LazyVim picker (telescope/fzf/snacks) keymaps.
 map('n', '<localleader>f', '<leader>ff', { remap = true, desc = 'Find Files (Root Dir)' })
 map('n', '<localleader>F', '<leader>fF', { remap = true, desc = 'Find Files (cwd)' })
+map('n', '<localleader>E', '<leader>e', { remap = true, desc = 'Explorer Files (Root Dir)' })
+map('n', '<localleader>e', '<leader>E', { remap = true, desc = 'Explorer Files (cwd)' })
 map('n', '<localleader>g', '<leader>sg', { remap = true, desc = 'Grep (Root Dir)' })
 map('n', '<localleader>G', '<leader>sG', { remap = true, desc = 'Grep (cwd)' })
 map('n', '<localleader>b', '<leader>,',  { remap = true, desc = 'Switch Buffer' })

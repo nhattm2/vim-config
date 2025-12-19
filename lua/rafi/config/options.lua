@@ -133,6 +133,9 @@ vim.filetype.add({
 		['.*%.postman_collection'] = 'json',
 		['Jenkinsfile.*'] = 'groovy',
 	},
+	extension = {
+		tf = 'terraform',
+	},
 })
 
 -- vim: set ts=2 sw=0 tw=80 noet :
